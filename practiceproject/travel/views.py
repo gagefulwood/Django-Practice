@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from .models import Destinations
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    dests = Destinations.objects.all()
+    print(dests)
+    return render(request,'index.html', {'dests':dests})
