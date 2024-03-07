@@ -31,9 +31,7 @@
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start'%}">
 									<li class="active"><a href="{% static 'index.html'%}">Home</a></li>
-									<li><a href="{% static 'about.html'%}">About us</a></li>
-									<li><a href="{% static '#'%}">Services</a></li>
-									<li><a href="{% static 'news.html'%}">News</a></li>
+									<li><a href="accounts/register">Register</a></li>
 									<li><a href="{% static 'contact.html'%}">Contact</a></li>
 								</ul>
 							</nav>
@@ -286,16 +284,18 @@
 						</div>
 
 						<!-- Destination -->
+						{% for dest in dests %}
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{% static 'images/destination_4.jpg'%}" alt="">
+								<img src="{{dest.img.url}}" alt="">
 							</div>
 							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html'%}">Paris</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
+								<div class="destination_title"><a href="{% static 'destinations.html'%}">{{dest.name}}</a></div>
+								<div class="destination_subtitle"><p>{{dest.desc}}</p></div>
+								<div class="destination_price">From ${{dest.price}}</div>
 							</div>
 						</div>
+						{% endfor %}
 
 						<!-- Destination -->
 						<div class="destination item">
@@ -566,7 +566,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</footer>
 </div>
 
-<script src="{% static 'js/jquery-3.2.1.min.js"'%}></script>
+<script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
 <script src="{% static 'styles/bootstrap4/popper.js'%}"></script>
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js'%}"></script>
 <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js'%}"></script>
